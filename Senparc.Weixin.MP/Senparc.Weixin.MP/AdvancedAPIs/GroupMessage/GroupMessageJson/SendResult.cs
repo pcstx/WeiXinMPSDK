@@ -29,6 +29,11 @@ namespace Senparc.Weixin.MP.AdvancedAPIs.GroupMessage
         /// 消息ID
         /// </summary>
         public string msg_id { get; set; }
+
+        /// <summary>
+        /// 消息的数据ID，该字段只有在群发图文消息时，才会出现。
+        /// </summary>
+        public string msg_data_id { get; set; }
     }
 
     public class GetSendResult:WxJsonResult

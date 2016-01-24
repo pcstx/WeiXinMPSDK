@@ -24,6 +24,11 @@ namespace Senparc.Weixin.MP.AdvancedAPIs.GroupMessage
         public string thumb_media_id { get; set; }
 
         /// <summary>
+        /// 图文消息的封面图片的地址
+        /// </summary>
+        public string thumb_url { get; set; }
+
+        /// <summary>
         /// 图文消息的作者
         /// </summary>
         public string author { get; set; }
