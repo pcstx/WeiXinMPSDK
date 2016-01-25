@@ -87,8 +87,10 @@ namespace Senparc.Weixin.MP.AdvancedAPIs.AutoReply
         /// 匹配的关键词列表
         /// </summary>
         public List<KeywordListInfoItem> keyword_list_info { get; set; }
-    }
 
+        public List<ReplyListInfoItem> reply_list_info { get; set; }
+    }
+     
     public class KeywordListInfoItem
     {
         /// <summary>
