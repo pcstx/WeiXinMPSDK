@@ -206,6 +206,36 @@ namespace Senparc.Weixin.MP
         /// 摇一摇事件通知
         /// </summary>
         ShakearoundUserShake,
+
+        /// <summary>
+        /// 资质认证成功
+        /// </summary>
+        qualification_verify_success,
+
+        /// <summary>
+        /// 资质认证失败
+        /// </summary>
+        qualification_verify_fail,
+
+        /// <summary>
+        /// 名称认证成功
+        /// </summary>
+        naming_verify_success,
+
+        /// <summary>
+        /// 名称认证失败
+        /// </summary>
+        naming_verify_fail,
+
+        /// <summary>
+        /// 年审通知
+        /// </summary>
+        annual_renew,
+
+        /// <summary>
+        /// 认证过期失效通知
+        /// </summary>
+        verify_expired,
     }
 
 

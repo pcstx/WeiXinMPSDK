@@ -115,6 +115,21 @@ namespace Senparc.Weixin.MP.MessageHandlers
                 case Event.ShakearoundUserShake://摇一摇事件通知
                     responseMessage = OnEvent_ShakearoundUserShake(RequestMessage as RequestMessageEvent_ShakearoundUserShake);
                     break;
+                case Event.qualification_verify_success: //资质认证成功
+                                                         
+                    break;
+                case Event.qualification_verify_fail://资质认证失败
+
+                    break;
+                case Event.naming_verify_success://名称认证成功
+
+                    break;
+                case Event.naming_verify_fail: //名称认证失败
+                    break;
+                case Event.annual_renew: //年审通知
+                    break; 
+                case Event.verify_expired: //认证过期失效通知
+                    break;
                 default:
                     throw new UnknownRequestMsgTypeException("未知的Event下属请求信息", null);
             }
@@ -376,6 +391,54 @@ namespace Senparc.Weixin.MP.MessageHandlers
         /// Event事件类型请求之摇一摇事件通知
         /// </summary>
         public virtual IResponseMessageBase OnEvent_ShakearoundUserShake(RequestMessageEvent_ShakearoundUserShake requestMessage)
+        {
+            return DefaultResponseMessage(requestMessage);
+        }
+
+        /// <summary>
+        /// Event事件类型请求之资质认证成功
+        /// </summary>
+        public virtual IResponseMessageBase OnEvent_Qualification_Verify_Success(RequestMessageEvent_Qualification_Verify_Success requestMessage)
+        {
+            return DefaultResponseMessage(requestMessage);
+        }
+
+        /// <summary>
+        /// Event事件类型请求之资质认证失败
+        /// </summary>
+        public virtual IResponseMessageBase OnEvent_Qualification_Verify_Fail(RequestMessageEvent_Qualification_Verify_Fail requestMessage)
+        {
+            return DefaultResponseMessage(requestMessage);
+        }
+
+        /// <summary>
+        /// Event事件类型请求之名称认证成功
+        /// </summary>
+        public virtual IResponseMessageBase OnEvent_Naming_Verify_Success(RequestMessageEvent_Naming_Verify_Success requestMessage)
+        {
+            return DefaultResponseMessage(requestMessage);
+        }
+
+        /// <summary>
+        /// Event事件类型请求之名称认证失败
+        /// </summary>
+        public virtual IResponseMessageBase OnEvent_Naming_Verify_Fail(RequestMessageEvent_Naming_Verify_Fail requestMessage)
+        {
+            return DefaultResponseMessage(requestMessage);
+        }
+
+        /// <summary>
+        /// Event事件类型请求之年审通知
+        /// </summary>
+        public virtual IResponseMessageBase OnEvent_Annual_Renew(RequestMessageEvent_Annual_Renew requestMessage)
+        {
+            return DefaultResponseMessage(requestMessage);
+        }
+
+        /// <summary>
+        /// Event事件类型请求之认证过期失效通知
+        /// </summary>
+        public virtual IResponseMessageBase OnEvent_Verify_Expired(RequestMessageEvent_Verify_Expired requestMessage)
         {
             return DefaultResponseMessage(requestMessage);
         }
