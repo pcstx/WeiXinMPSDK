@@ -118,7 +118,7 @@ namespace Senparc.Weixin.MP.AdvancedAPIs
         /// 获取模板列表
         /// </summary>
         /// <param name="accessTokenOrAppId"></param>
-        public static TemplateListResult GetAllPrivateTemplate(string accessTokenOrAppId,string templateId, int timeOut = Config.TIME_OUT)
+        public static TemplateListResult GetAllPrivateTemplate(string accessTokenOrAppId,int timeOut = Config.TIME_OUT)
         {
             return ApiHandlerWapper.TryCommonApi(accessToken =>
             {
