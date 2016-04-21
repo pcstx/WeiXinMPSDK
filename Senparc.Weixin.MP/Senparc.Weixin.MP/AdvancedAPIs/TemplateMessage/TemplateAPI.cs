@@ -18,7 +18,8 @@
     API：http://mp.weixin.qq.com/wiki/17/304c1885ea66dbedf7dc170d84999a9d.html
  */
 
-using Senparc.Weixin.MP.AdvancedAPIs.TemplateMessage;
+using Senparc.Weixin.Entities;
+using Senparc.Weixin.MP.AdvancedAPIs.TemplateMessage; 
 using Senparc.Weixin.MP.CommonAPIs;
 
 namespace Senparc.Weixin.MP.AdvancedAPIs
@@ -56,5 +57,95 @@ namespace Senparc.Weixin.MP.AdvancedAPIs
 
             }, accessTokenOrAppId);
         }
+
+        /// <summary>
+        /// 设置所属行业
+        /// </summary>
+        /// <param name="accessTokenOrAppId"></param>
+        public static WxJsonResult SetIndustry(string accessTokenOrAppId,string industryId1,string industryId2, int timeOut = Config.TIME_OUT)
+        {
+            return ApiHandlerWapper.TryCommonApi(accessToken =>
+            {
+                const string urlFormat = "https://api.weixin.qq.com/cgi-bin/template/api_set_industry?access_token={0}";
+                var msgData = new
+                {
+                    industry_id1 = industryId1,
+                    industry_id2 = industryId2
+                };
+                return CommonJsonSend.Send<WxJsonResult>(accessToken, urlFormat, msgData, timeOut: timeOut);
+
+            }, accessTokenOrAppId);
+        }
+
+        /// <summary>
+        /// 获取设置的行业信息
+        /// </summary>
+        /// <param name="accessTokenOrAppId"></param>
+        /// <param name="timeOut"></param>
+        public static GetIndustryResult GetIndustry(string accessTokenOrAppId, int timeOut = Config.TIME_OUT)
+        {
+            return ApiHandlerWapper.TryCommonApi(accessToken =>
+            {
+                const string urlFormat = "https://api.weixin.qq.com/cgi-bin/template/get_industry?access_token={0}";
+                 
+                return CommonJsonSend.Send<GetIndustryResult>(accessToken, urlFormat, null, timeOut: timeOut);
+
+            }, accessTokenOrAppId);
+        }
+
+        /// <summary>
+        /// 获得模板ID
+        /// </summary>
+        /// <param name="accessTokenOrAppId"></param>
+        /// <param name="templateIdShort"></param>
+        /// <param name="timeOut"></param>
+        /// <returns></returns>
+        public static AddTemplateResult AddTemplate(string accessTokenOrAppId, string templateIdShort, int timeOut = Config.TIME_OUT)
+        {
+            return ApiHandlerWapper.TryCommonApi(accessToken =>
+            {
+                const string urlFormat = "https://api.weixin.qq.com/cgi-bin/template/api_add_template?access_token={0}";
+                var msgData = new
+                {
+                    template_id_short=templateIdShort
+                };
+                return CommonJsonSend.Send<AddTemplateResult>(accessToken, urlFormat, msgData, timeOut: timeOut);
+
+            }, accessTokenOrAppId);
+        }
+
+        /// <summary>
+        /// 获取模板列表
+        /// </summary>
+        /// <param name="accessTokenOrAppId"></param>
+        public static TemplateListResult GetAllPrivateTemplate(string accessTokenOrAppId,string templateId, int timeOut = Config.TIME_OUT)
+        {
+            return ApiHandlerWapper.TryCommonApi(accessToken =>
+            {
+                const string urlFormat = "https://api.weixin.qq.com/cgi-bin/template/get_all_private_template?access_token={0}";
+               
+                return CommonJsonSend.Send<TemplateListResult>(accessToken, urlFormat, null, timeOut: timeOut);
+
+            }, accessTokenOrAppId);
+        }
+
+        /// <summary>
+        /// 删除模板
+        /// </summary>
+        public static WxJsonResult DelPrivateTemplate(string accessTokenOrAppId,string templateId, int timeOut = Config.TIME_OUT)
+        {
+            return ApiHandlerWapper.TryCommonApi(accessToken =>
+            {
+                const string urlFormat = "https://api.weixin.qq.com/cgi-bin/template/del_private_template?access_token={0}";
+                var msgData = new
+                {
+                    template_id = templateId
+                };
+                return CommonJsonSend.Send<WxJsonResult>(accessToken, urlFormat, msgData, timeOut: timeOut);
+
+            }, accessTokenOrAppId);
+        }
+
+
     }
 }
