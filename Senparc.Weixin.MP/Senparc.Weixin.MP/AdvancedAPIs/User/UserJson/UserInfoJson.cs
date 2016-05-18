@@ -52,12 +52,13 @@ namespace Senparc.Weixin.MP.AdvancedAPIs.User
         public string unionid { get; set; }
         public string remark { get; set; }
         public int groupid { get; set; }
+        public List<int> tagid_list { get; set; }
     }
 
     /// <summary>
     /// 批量获取用户基本信息返回结果
     /// </summary>
-    public class BatchGetUserInfoJson : WxJsonResult
+    public class BatchGetUserInfoJsonResult : WxJsonResult
     {
         public List<UserInfoJson> user_info_list { get; set; }
     }
